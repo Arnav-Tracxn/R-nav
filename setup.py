@@ -1,6 +1,6 @@
 from setuptools import setup
 
-setup(name='Arise',
+setup(name='arise1',
       version='0.1',
       description='Arise Impact Web Application',
       author='Arnav - Vivek - Sanyam',
