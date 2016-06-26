@@ -22,33 +22,40 @@ class User(db.Model):
     email = db.Column('email',db.String(50),unique=True , index=True)
     registered_on = db.Column('registered_on' , db.DateTime)
     #todos = db.relationship('Todo' , backref='user',lazy='dynamic')
-
+    
     def __init__(self , username ,password , email):
         self.username = username
         self.set_password(password)
         self.email = email
         self.registered_on = datetime.utcnow()
-
+    
     def set_password(self , password):
         self.password = generate_password_hash(password)
-
+    
     def check_password(self , password):
         return check_password_hash(self.password , password)
-
+    
     def is_authenticated(self):
         return True
-
+    
     def is_active(self):
         return True
-
+    
     def is_anonymous(self):
         return False
-
+    
     def get_id(self):
         return unicode(self.id)
-
+    
     def __repr__(self):
         return '<User %r>' % (self.username)
+
+app = Flask(__name__)
+
+@app.route('/')
+@app.route('/hello')
+def index():
+    return "ARISE is now on OpenShift"
 
 @app.route('/register' , methods=['GET','POST'])
 def register():
@@ -84,7 +91,7 @@ def login():
 @app.route('/logout')
 def logout():
     logout_user()
-    return redirect(url_for('index')) 
+    return redirect(url_for('index'))
 
 @login_manager.user_loader
 def load_user(id):
