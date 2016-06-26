@@ -1,5 +1,5 @@
 <!doctype html>
-<title>ARISE Impact Web Application</title>
+<title>ARISE Impact </title>
 <meta name="viewport" content="initial-scale=1.0, user-scalable=no">
 <meta charset="utf-8">
 <style>
@@ -21,15 +21,15 @@ body {
 					<span class="icon-bar"></span> <span class="icon-bar"></span> <span
 						class="icon-bar"></span>
 				</button>
-				<a class="brand" href="/">ARISE</a>
+				<a class="brand" href="/">ARISE Impact</a>
 				<div class="nav-collapse collapse">
 					<ul class="nav">
 						<li class="active"><a href="/">Home</a></li>
-						{% if g.user.is_authenticated()%}
-							<li><a href="/new">New Action</a></li>
+						{% if g.user.is_authenticated %}
+							<li><a href="/new">New Todo</a></li>
 							<li><a href="{{ url_for('logout') }}">Logout</a></li>
 						{% endif %}
-						{% if not g.user.is_authenticated()%}
+						{% if not g.user.is_authenticated %}
 							<li><a href="{{ url_for('login') }}">Login</a></li>
 							<li><a href="{{ url_for('register') }}">Register</a></li>
 						{% endif %}
@@ -56,9 +56,9 @@ body {
 	{% block body %}{% endblock %}
 	<hr>
 	<footer id="footer">
-				<p>&copy; ARISE Impact 2016</p>
+				<p>&copy; ARISE Impact, 2016</p>
 
-				<p>Contact us at <a href="mailto:contactus@ariseimpact.org">contactus@ariseimpact.org</a>.</p>
-				<p><a href="https://www.openshift.com/" target="_blank"><img alt="Powered by OpenShift" src="https://www.openshift.com/sites/default/files/images/powered-transparent-black.png"></a></p>
+				<p>App built using Flask, SQLAlchemy, PostgreSQL , and Twitter Bootstrap</p>
+				<p><a href="https://www.openshift.com/" target="_blank"><img alt="Powered by OpenShift" src="https://www.openshift.com/sites/default/files/images/powered-transparent-black.png"></a></p>		
 	</footer>
 </div>
