@@ -1,5 +1,5 @@
 <!doctype html>
-<title>ARISE Impact </title>
+<title>Tracxn Report Navigator </title>
 <meta name="viewport" content="initial-scale=1.0, user-scalable=no">
 <meta charset="utf-8">
 <style>
@@ -21,12 +21,12 @@ body {
 					<span class="icon-bar"></span> <span class="icon-bar"></span> <span
 						class="icon-bar"></span>
 				</button>
-				<a class="brand" href="/">ARISE Impact</a>
+				<a class="brand" href="/">Tracxn Report Navigator</a>
 				<div class="nav-collapse collapse">
 					<ul class="nav">
 						<li class="active"><a href="/">Home</a></li>
 						{% if g.user.is_authenticated %}
-							<li><a href="/new">New Todo</a></li>
+							<li><a href="/new">New Report</a></li>
 							<li><a href="{{ url_for('logout') }}">Logout</a></li>
 						{% endif %}
 						{% if not g.user.is_authenticated %}
@@ -56,7 +56,7 @@ body {
 	{% block body %}{% endblock %}
 	<hr>
 	<footer id="footer">
-				<p>&copy; ARISE Impact, 2016</p>
+				<p>&copy; Arnav Pandey, 2016</p>
 
 				<p>App built using Flask, SQLAlchemy, PostgreSQL , and Twitter Bootstrap</p>
 				<p><a href="https://www.openshift.com/" target="_blank"><img alt="Powered by OpenShift" src="https://www.openshift.com/sites/default/files/images/powered-transparent-black.png"></a></p>		
