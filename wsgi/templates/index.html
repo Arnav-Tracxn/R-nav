@@ -1,13 +1,13 @@
 {% extends "layout.html" %}
 {% block body %}
 <div id="main" class="container">
-    <h2>All Tasks</h2>
+    <h2>All Reports</h2>
     <table class="table table-hover">
       <tr>
         <th>#
-        <th>Task Title
-        <th>Date
-        <th>Task Description
+        <th>Report Title
+        <th>Created Date
+        <th>Report Description
       {%- for todo in todos %}
       <tr class={{ "success" if todo.done }}>
         <td><a href="/todos/{{ todo.id }}">{{ todo.id }}</a>
@@ -17,7 +17,7 @@
       {%- endfor %}
     </table>
     <p>
-      <a href="{{ url_for('new') }}" class="btn btn-large btn-primary">New Task</a>
+      <a href="{{ url_for('new') }}" class="btn btn-large btn-primary">New Report</a>
 
   
 </div>
