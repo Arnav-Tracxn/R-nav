@@ -50,22 +50,6 @@ class User(db.Model):
     def __repr__(self):
         return '<User %r>' % (self.username)
 
-class Todo(db.Model):
-    __tablename__ = 'todos'
-    id = db.Column('todo_id', db.Integer, primary_key=True)
-    title = db.Column(db.String(60))
-    text = db.Column(db.String)
-    done = db.Column(db.Boolean)
-    pub_date = db.Column(db.DateTime)
-    user_id = db.Column(db.Integer, db.ForeignKey('users.user_id'))
-
-    def __init__(self, title, text):
-        self.title = title
-        self.text = text
-        self.done = False
-        self.pub_date = datetime.utcnow()
-
-
 @app.route('/')
 @login_required
 def index():
@@ -77,35 +61,7 @@ def index():
 @app.route('/new', methods=['GET', 'POST'])
 @login_required
 def new():
-    if request.method == 'POST':
-        if not request.form['title']:
-            flash('Title is required', 'error')
-        elif not request.form['text']:
-            flash('Text is required', 'error')
-        else:
-            todo = Todo(request.form['title'], request.form['text'])
-            todo.user = g.user
-            db.session.add(todo)
-            db.session.commit()
-            flash('Todo item was successfully created')
-            return redirect(url_for('index'))
-    return render_template('new.html')
-
-@app.route('/todos/<int:todo_id>', methods = ['GET' , 'POST'])
-@login_required
-def show_or_update(todo_id):
-    todo_item = Todo.query.get(todo_id)
-    if request.method == 'GET':
-        return render_template('view.html',todo=todo_item)
-    if todo_item.user.id == g.user.id:
-        todo_item.title = request.form['title']
-        todo_item.text  = request.form['text']
-        todo_item.done  = ('done.%d' % todo_id) in request.form
-        db.session.commit()
-        return redirect(url_for('index'))
-    flash('You are not authorized to edit this todo item','error')
-    return redirect(url_for('show_or_update',todo_id=todo_id))
-
+ pass
 
 @app.route('/register' , methods=['GET','POST'])
 def register():
