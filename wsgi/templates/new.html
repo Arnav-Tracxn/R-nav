@@ -1,25 +1,25 @@
 {% extends "layout.html" %}
 {% block body %}
   <form action="" method=post class="form-horizontal">
-    <h2>Create New Task</h2>
+    <h2>Create New Report</h2>
     <div class="control-group">
         <div class="controls">
           <input type="text" id="title" name="title" class="input-xlarge"
-            placeholder="Please give title to the task" value="{{ request.form.title }}"
+            placeholder="Please give title to the Report" value="{{ request.form.title }}"
             required>
         </div>
     </div>
 
     <div class="control-group">
         <div class="controls">
-          <textarea name="text" rows=10 class="input-xlarge" placeholder="describe the task" required>{{ request.form.text }}</textarea>
+          <textarea name="text" rows=10 class="input-xlarge" placeholder="describe the Report" required>{{ request.form.text }}</textarea>
         </div>
     </div>
 
     <div class="control-group">
         <div class="controls">
-          <button type="submit" class="btn btn-success">Create Task</button>
-          <a href="{{ url_for('index') }}">Back to list</a>
+          <button type="submit" class="btn btn-success">Create Report</button>
+          <a href="{{ url_for('index') }}">Back to list of Generated reports</a>
         </div>
     </div>
   </form>
